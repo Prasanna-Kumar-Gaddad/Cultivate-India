@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Home</title>
+</head>
+<body>
+    <section>
+    <div class="hero">
+        <div class="nav">
+            <div class="navlogo">
+                <img src="../static/css/logo.png" alt="">
+            </div>
+            <div class="nav-links" id="nav-links">
+                <i class="fa fa-close" onclick="closeMenu()"></i>
+                <ul>
+                    <a href="/"><li>Home</li></a>
+                    <a href="/crop-recommend"><li>Crop</li></a>
+                    <a href="/fertilizer"><li>Fertilizer</li></a>
+                    <a href="/disease-predict"><li>Disease</li></a>
+                    <a href=""><li>About Us</li></a>
+                </ul>
+                <button type="button" class="btn">Login|Sing Up</button>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </div>
+
+        <script type="text/JavaScript" src="../static/scripts/cities.js"></script>
+
+        <div class="top">
+            <span>Find out the most suitable crop to grow in your farm</span>
+        </div>
+        
+        <div class="form-list">
+            <div class="contact-form">
+                <form method="POST" action="{{ url_for('crop_prediction') }}">
+                    <p>Nitrogen</p><input name="nitrogen" id="Nitrogen" placeholder="Enter the value (example:50)" type="text" required>
+                    <p>Phosphorous</p><input name="phosphorous" id="Phosphorous" placeholder="Enter the value (example:50)" type="text" required>
+                    <p>Pottasium</p><input name="pottasium" id="Pottasium" placeholder="Enter the value (example:50)" type="text" required>
+                    <p>ph level</p><input name="ph" id="ph" placeholder="Enter the value" type="text" required>
+                    <p>Rainfall (in mm)</p><input name="rainfall" id="Rainfall" placeholder="Enter the value" type="text" required>
+
+                    <p>State</p>
+                    <select
+                        onchange="print_city('state', this.selectedIndex);"
+                        id="sts"
+                        name="stt"
+                        class="form-control"
+                        style=" color: black;"
+                        required
+                    ></select>
+                    <br />
+                    <br>
+                    <p>City</p>
+                    <select
+                        id="state"
+                        class="form-control"
+                        name="city"
+                        style=" color: black;"
+                        required
+                    ></select>
+                    <script language="javascript">
+                        print_state("sts");
+                    </script>
+                
+                    <input type="submit" value="Predict">
+                </form>
+            </div>
+            
+            
+        </div>
+    </div>
+    <script>
+        var show = document.getElementById('nav-links')
+        function showMenu(){
+            show.style.right = '0'
+        }
+        function closeMenu(){
+            show.style.right = '-200px'
+        }
+    </script>
+    </section>

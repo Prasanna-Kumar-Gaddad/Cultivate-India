@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="hero">
+        <div class="nav">
+            <div class="navlogo">
+                <img src="../static/css/logo.png" alt="">
+            </div>
+            <div class="nav-links" id="nav-links">
+                <i class="fa fa-close" onclick="closeMenu()"></i>
+                <ul>
+                    <a href="/">
+                        <li>Home</li>
+                    </a>
+                    <a href="/crop-recommend">
+                        <li>Crop</li>
+                    </a>
+                    <a href="/fertilizer">
+                        <li>Fertilizer</li>
+                    </a>
+                    <a href="/disease-predict">
+                        <li>Disease</li>
+                    </a>
+                    <a href="">
+                        <li>About Us</li>
+                    </a>
+                </ul>
+                <button type="button" class="btn">Login|Sing Up</button>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </div>
+
+
+        <div class="disease">
+            <h3 class="dis-head" style="text-align: center; margin: 0px; color: white">
+                <b>Find out which disease has been caught by your plant</b>
+            </h3>
+            <br />
+            <br>
+
+            <div>
+                <form class="form-signin" method=post enctype=multipart/form-data>
+
+                    <h3 class="h4 mb-3 font-weight-normal"><b>Please Upload The Image</b></h3>
+                    <br>
+                    <input name="file" type="file" name="file" class="form-control-file" id="inputfile" onchange="preview_image(event)" style="font-weight:normal;">
+
+                    <br>
+                    <br>
+
+                    <img id="output-image" class="rounded mx-auto d-block">
+
+                    <br>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" style="font-weight: bold;">Predict</button>
+                </form>
+            </div>
+
+
+
+
+        </div>
+
+        <script type="text/javascript">
+            function preview_image(event) {
+                var reader = new FileReader();
+                reader.onload = function() {
+                    var output = document.getElementById('output-image')
+                    output.src = reader.result;
+                }
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        </script>
+
+
+
+
+    </div>
+    <script>
+        var show = document.getElementById('nav-links')
+
+        function showMenu() {
+            show.style.right = '0'
+        }
+
+        function closeMenu() {
+            show.style.right = '-200px'
+        }
+    </script>
+</body>

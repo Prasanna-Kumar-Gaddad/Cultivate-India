@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Home</title>
+</head>
+<body>
+    <section>
+    <div class="hero">
+        <div class="nav">
+            <div class="navlogo">
+                <img src="../static/css/logo.png" alt="">
+            </div>
+            <div class="nav-links" id="nav-links">
+                <i class="fa fa-close" onclick="closeMenu()"></i>
+                <ul>
+                    <a href="/"><li>Home</li></a>
+                    <a href="/crop-recommend"><li>Crop</li></a>
+                    <a href="/fertilizer"><li>Fertilizer</li></a>
+                    <a href="/disease-predict"><li>Disease</li></a>
+                    <a href=""><li>About Us</li></a>
+                </ul>
+                <button type="button" class="btn">Login|Sing Up</button>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </div>
+
+        <script type="text/JavaScript" src="../static/scripts/cities.js"></script>
+
+        <div class="top">
+            <span>Get informed advice on fertilizer based on soil</span>
+        </div>
+        
+        <div class="form-list">
+            <div class="contact-form">
+                <form method="POST" action="{{ url_for('fert_recommend') }}">
+                    <div class="form-group">
+                      <label for="Nitrogen" style="font-size: 20px"><b>Nitrogen</b></label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="Nitrogen"
+                        name="nitrogen"
+                        placeholder="Enter the value (example:50)"
+                        black
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="Phosphorous" style="font-size: 20px"
+                        ><b>Phosphorous</b></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="Phosphorous"
+                        name="phosphorous"
+                        placeholder="Enter the value (example:50)"
+                        
+                        required
+                      />
+                    </div>
+                
+                    <div class="form-group">
+                      <label for="Pottasium" style="font-size: 20px"><b>Pottasium</b></label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="Pottasium"
+                        name="pottasium"
+                        placeholder="Enter the value (example:50)"
+                        style="color: white;"
+                        required
+                      />
+                    </div>
+                    <!-- <div class="form-group">
+                      <label for="ph" style="font-size: 17px"><b>ph level</b></label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="ph"
+                        name="ph"
+                        placeholder="Enter the value"
+                        style="font-weight: bold"
+                        required
+                      />
+                    </div> -->
+                    <div class="form-group">
+                    <label for="crop" style="font-size: 20px">
+                        <b>Crop you want to grow</b>
+                    </label>
+                      <select
+                        name="cropname"
+                        class="form-control"
+                        id="crop"
+                        placeholder="Select a crop"
+                        style=" color: black;"
+                        required
+                      >
+                        <option selected>Select crop</option>
+                        <option>rice</option>
+                        <option>maize</option>
+                        <option>chickpea</option>
+                        <option>kidneybeans</option>
+                        <option>pigeonpeas</option>
+                        <option>mothbeans</option>
+                        <option>mungbean</option>
+                        <option>blackgram</option>
+                        <option>lentil</option>
+                        <option>pomegranate</option>
+                        <option>banana</option>
+                        <option>mango</option>
+                        <option>grapes</option>
+                        <option>watermelon</option>
+                        <option>muskmelon</option>
+                        <option>apple</option>
+                        <option>orange</option>
+                        <option>papaya</option>
+                        <option>coconut</option>
+                        <option>cotton</option>
+                        <option>jute</option>
+                        <option>coffee</option>
+                      </select>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="d-flex justify-content-center">
+                      <button
+                        type="submit"
+                        class="btn btn-info"
+                        style="
+                          color: white;
+                          width: 300px;
+                          height: 30px;
+                          border-radius: 25px;
+                          font-size: 15px;
+                        "
+                        >Predict</button>
+                    </div>
+                  </form>
+            </div>
+            
+            
+        </div>
+    </div>
+    <script>
+        var show = document.getElementById('nav-links')
+        function showMenu(){
+            show.style.right = '0'
+        }
+        function closeMenu(){
+            show.style.right = '-200px'
+        }
+    </script>
+    </section>
