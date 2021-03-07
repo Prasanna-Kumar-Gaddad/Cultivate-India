@@ -23,7 +23,7 @@ def home():
 
 # =========================================================================================
 
-crop_recommendation_model_path = 'models/crop_prediction/RF_pkl.pkl'
+crop_recommendation_model_path = 'model/crop_prediction/RF_pkl.pkl'
 crop_recommendation_model = pickle.load(
     open(crop_recommendation_model_path, 'rb'))
 
@@ -136,13 +136,13 @@ def fert_recommend():
 # ===============================================================================================
 
 
-json_file = open('models/disease prediction/model.json' , 'r')
+json_file = open('model/disease prediction/model.json' , 'r')
 loaded_model = json_file.read()
 
 json_file.close()
 
 model = model_from_json(loaded_model)
-model.load_weights('models/disease prediction/model.h5')
+model.load_weights('model/disease prediction/model.h5')
 
 
 upload_folder = 'static/uploads'
