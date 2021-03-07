@@ -136,7 +136,7 @@ def fert_recommend():
 # ===============================================================================================
 
 
-json_file = open('model/disease prediction/model.json' , 'r')
+json_file = open('model/disease classification/model.json' , 'r')
 loaded_model = json_file.read()
 
 json_file.close()
