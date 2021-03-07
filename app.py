@@ -70,14 +70,17 @@ def crop_prediction():
 
         # state = request.form.get("stt")
         city = request.form.get("city")
-
-        if weather_fetch(city) != None:
-            temperature, humidity = weather_fetch(city)
-            data = np.array([[N, P, K, temperature, humidity, ph, rainfall]])
-            my_prediction = crop_recommendation_model.predict(data)
-            final_prediction = my_prediction[0]
-
-            return render_template('crop-result.html', prediction=final_prediction, title=title)
+        
+        try: 
+            if weather_fetch(city) != None:
+               temperature, humidity = weather_fetch(city)
+               data = np.array([[N, P, K, temperature, humidity, ph, rainfall]])
+               my_prediction = crop_recommendation_model.predict(data)
+               final_prediction = my_prediction[0]
+               return render_template('crop-result.html', prediction=final_prediction, title=title)
+        except:
+            return render_template('crop.html', prediction=final_prediction, title=title)
+            
 
         
 
