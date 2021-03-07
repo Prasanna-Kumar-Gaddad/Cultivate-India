@@ -6,8 +6,8 @@ import pickle
 import os
 from utils.disease import disease_dic
 from utils.fertilizer import fertilizer_dic
-from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
+from tensorflow.keras.models import model_from_json
 # =========================================================================================
 
 app = Flask(__name__)
@@ -131,7 +131,16 @@ def fert_recommend():
 # render disease prediction result page
 
 # ===============================================================================================
-model = load_model('models/Xception 2.0.h5')
+
+
+json_file = open('models/disease prediction/model.json' , 'r')
+loaded_model = json_file.read()
+
+json_file.close()
+
+model = model_from_json(loaded_model)
+model.load_weights('models/disease prediction/model.h5')
+
 
 upload_folder = 'static/uploads'
 
@@ -149,7 +158,6 @@ def disease_prediction():
             x = image.img_to_array(img)
             x = x/255
             img_data = np.expand_dims(x, axis=0)
-            model.predict(img_data)
             a = np.argmax(model.predict(img_data), axis=1)
     
             prediction = Markup(str(disease_dic[a[0]]))
