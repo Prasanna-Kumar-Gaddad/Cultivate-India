@@ -23,7 +23,7 @@ def home():
 
 # =========================================================================================
 
-crop_recommendation_model_path = 'E:/projects/fertile india/models/crop_prediction/RF_pkl.pkl'
+crop_recommendation_model_path = 'models/crop_prediction/RF_pkl.pkl'
 crop_recommendation_model = pickle.load(
     open(crop_recommendation_model_path, 'rb'))
 
@@ -131,9 +131,9 @@ def fert_recommend():
 # render disease prediction result page
 
 # ===============================================================================================
-model = load_model('E:/projects/fertile india/models/Xception 2.0.h5')
+model = load_model('models/Xception 2.0.h5')
 
-upload_folder = 'E:/projects/fertile india/static/uploads'
+upload_folder = 'static/uploads'
 
 @app.route('/disease-predict', methods=['GET', 'POST'])
 def disease_prediction():
