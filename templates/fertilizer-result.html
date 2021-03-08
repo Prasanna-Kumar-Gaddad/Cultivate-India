@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../static/css/style.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Home</title>
+</head>
+
+<body>
+    <section>
+        <div class="hero">
+            <div class="nav">
+                <div class="navlogo">
+                    <img src="../static/css/logo.png" alt="">
+                </div>
+                <div class="nav-links" id="nav-links">
+                    <i class="fa fa-close" onclick="closeMenu()"></i>
+                    <ul>
+                        <a href="/">
+                            <li>Home</li>
+                        </a>
+                        <a href="/crop-recommend">
+                            <li>Crop</li>
+                        </a>
+                        <a href="/fertilizer">
+                            <li>Fertilizer</li>
+                        </a>
+                        <a href="/disease-predict">
+                            <li>Disease</li>
+                        </a>
+                        <a href="">
+                            <li>About Us</li>
+                        </a>
+                    </ul>
+                    <button type="button" class="btn">Login|Sing Up</button>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </div>
+
+
+
+
+            <div class="text-center">
+                <b><i>{{ prediction }} </i></b>
+            </div>
+
+
+        </div>
+        <script>
+            var show = document.getElementById('nav-links')
+
+            function showMenu() {
+                show.style.right = '0'
+            }
+
+            function closeMenu() {
+                show.style.right = '-200px'
+            }
+        </script>
+    </section>
+
+    <!--Footer------>
+    <section id="footer">
+        <img class="footer-img">
+
+
+        <div class='footer-row'>
+            <div class="footer-left">
+                <h1>Opening Hours</h1>
+                <p><i class="fa fa-clock-o"></i> Monday To Friday - 9am to 9pm</p>
+                <p><i class="fa fa-clock-o"></i> Saturday To Sunday - 8am to 11pm</p>
+            </div>
+            <div class="footer-right">
+                <h1>Get In Touch</h1>
+                <p>#30 abc Colony , xyz city IN <i class="fa fa-map-marker"></i></p>
+                <p>abcdef@website.com <i class="fa fa-paper-plane"></i></p>
+                <p>+01 1234567899 <i class="fa fa-phone"></i></p>
+            </div>
+        </div>
+        <div class="social-links">
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-youtube"></i>
+            <p class="name">© Copyright 2021 Prasanna Kumar</p>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
