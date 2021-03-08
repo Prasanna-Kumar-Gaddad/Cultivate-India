@@ -85,7 +85,7 @@ torch==1.8.0
 torchaudio==0.7.0
 torchvision==0.8.1
 tornado==6.1
-traitlets==5.0.5
+traitlets==4.3.3
 txt2tags==3.7
 typing-extensions==3.7.4.3
 urllib3==1.26.2
