@@ -25,7 +25,7 @@ def home():
 
 # =========================================================================================
 
-crop_recommendation_model_path = 'models/crop_prediction/RF_pkl.pkl'
+crop_recommendation_model_path = 'model/crop_prediction/RF_pkl.pkl'
 crop_recommendation_model = pickle.load(
     open(crop_recommendation_model_path, 'rb'))
 
