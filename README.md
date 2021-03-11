@@ -1,4 +1,5 @@
-# Fertile-India
+# Cultivate-India
+
 #### A simple machine learning based website which recommends best crop to grow, fertilizers to use and the diseases caught by your crops
 
 ## MOTIVATION
